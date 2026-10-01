@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pang Yew Cheng | Mobile App Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0a192f',
+                            800: '#112240',
+                            700: '#233554',
+                        },
+                        teal: {
+                            400: '#64ffda',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a192f;
+            color: #8892b0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #ccd6f6;
+        }
+        .text-accent {
+            color: #64ffda;
+        }
+        .bg-accent {
+            background-color: #64ffda;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233554;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64ffda;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-400 selection:text-navy-900 leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-navy-900/80 border-b border-navy-700/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-accent tracking-tighter">&lt;PYC /&gt;</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-accent transition-colors duration-300 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-accent transition-colors duration-300 px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#experience" class="hover:text-accent transition-colors duration-300 px-3 py-2 text-sm font-medium">Experience</a>
+                        <a href="#projects" class="hover:text-accent transition-colors duration-300 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#education" class="hover:text-accent transition-colors duration-300 px-3 py-2 text-sm font-medium">Education</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-navy-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-navy-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+                <a href="#about" class="block hover:text-accent hover:bg-navy-700 px-3 py-2 rounded-md text-base font-medium mobile-link">About</a>
+                <a href="#skills" class="block hover:text-accent hover:bg-navy-700 px-3 py-2 rounded-md text-base font-medium mobile-link">Skills</a>
+                <a href="#experience" class="block hover:text-accent hover:bg-navy-700 px-3 py-2 rounded-md text-base font-medium mobile-link">Experience</a>
+                <a href="#projects" class="block hover:text-accent hover:bg-navy-700 px-3 py-2 rounded-md text-base font-medium mobile-link">Projects</a>
+                <a href="#education" class="block hover:text-accent hover:bg-navy-700 px-3 py-2 rounded-md text-base font-medium mobile-link">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center pt-20 pb-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl">
+                <p class="text-accent font-medium mb-4 tracking-wide">Hi, my name is</p>
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4">Pang Yew Cheng.</h1>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-400 mb-8">I build mobile experiences.</h2>
+                
+                <p class="text-lg text-slate-400 mb-10 max-w-2xl leading-relaxed">
+                    Forward-thinking <span class="text-accent">Mobile App Developer</span> with a background working productively in dynamic environments. 
+                    Fluent in JavaScript/TypeScript and .Net Framework within the property industry, and highly experienced with <span class="text-accent">Flutter</span> to build robust mobile applications. 
+                    A dedicated team player focused on speed, accuracy, and continuous learning.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="mailto:cheng_pangyew@hotmail.com" class="flex items-center gap-2 bg-transparent border border-teal-400 text-teal-400 hover:bg-teal-400/10 px-6 py-3 rounded-md transition-all duration-300">
+                        <i class="fas fa-envelope"></i> cheng_pangyew@hotmail.com
+                    </a>
+                    <a href="tel:0163321863" class="flex items-center gap-2 bg-transparent border border-slate-600 text-slate-300 hover:border-slate-400 px-6 py-3 rounded-md transition-all duration-300">
+                        <i class="fas fa-phone"></i> 016-3321863
+                    </a>
+                    <div class="flex items-center gap-2 bg-transparent border border-slate-600 text-slate-300 px-6 py-3 rounded-md">
+                        <i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-navy-800/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-accent font-normal mr-3 text-xl">01.</span> Technical Expertise
+                <div class="h-px bg-navy-700 flex-grow ml-6 max-w-xs"></div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-slate-200"><i class="fas fa-code text-accent mr-2"></i> Technologies & Languages</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-navy-800 text-teal-400 rounded-full text-sm font-medium border border-navy-700 shadow-sm hover:border-teal-400/50 transition-colors">Flutter</span>
+                        <span class="px-4 py-2 bg-navy-800 text-teal-400 rounded-full text-sm font-medium border border-navy-700 shadow-sm hover:border-teal-400/50 transition-colors">Angular</span>
+                        <span class="px-4 py-2 bg-navy-800 text-teal-400 rounded-full text-sm font-medium border border-navy-700 shadow-sm hover:border-teal-400/50 transition-colors">React</span>
+                        <span class="px-4 py-2 bg-navy-800 text-teal-400 rounded-full text-sm font-medium border border-navy-700 shadow-sm hover:border-teal-400/50 transition-colors">ASP.Net Core</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">HTML/CSS</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">JavaScript/TypeScript</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">Java</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">Python</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">C#</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-full text-sm border border-navy-700 hover:text-white transition-colors">C++</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Soft Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-slate-200"><i class="fas fa-wrench text-accent mr-2"></i> Tools & Methodologies</h3>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-md text-sm border border-navy-700">PostgreSQL / SQL</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-md text-sm border border-navy-700">Azure Cloud</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-md text-sm border border-navy-700">Git (Gitlab/GitHub)</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-md text-sm border border-navy-700">CI/CD Pipeline</span>
+                        <span class="px-4 py-2 bg-navy-800 text-slate-300 rounded-md text-sm border border-navy-700">Blockchain Concepts</span>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-6 text-slate-200"><i class="fas fa-users text-accent mr-2"></i> Soft Skills</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-xs"></i> Collaborative problem solver</li>
+                        <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-xs"></i> Open and ready to learn new technologies</li>
+                        <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-xs"></i> Strong communication skills</li>
+                        <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-xs"></i> Dedicated team player</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-accent font-normal mr-3 text-xl">02.</span> Work Experience
+                <div class="h-px bg-navy-700 flex-grow ml-6"></div>
+            </h2>
+
+            <div class="relative border-l border-navy-700 ml-3 md:ml-0 border-opacity-50 space-y-12 pb-4">
+                
+                <!-- Job 1 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute w-4 h-4 bg-navy-900 border-2 border-accent rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-slate-200">Senior Mobile App Developer</h3>
+                        <span class="text-teal-400 font-mono text-sm mt-1 md:mt-0 bg-teal-400/10 px-3 py-1 rounded-full w-max">Oct 2022 - Present</span>
+                    </div>
+                    <h4 class="text-lg text-slate-400 mb-4 font-medium">Webmax Technologies SDN BHD (M Studio)</h4>
+                    <ul class="space-y-2 text-slate-400 list-none">
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Spearheaded mobile application development and architecture using modern frameworks.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Conducted continuous research on the latest Flutter updates to implement best practices.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Monitored performance and executed crucial version upgrades for existing mobile applications.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Developed robust APIs for mobile applications and facilitated seamless third-party system integrations.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute w-4 h-4 bg-navy-900 border-2 border-slate-500 rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-slate-200">Website Developer</h3>
+                        <span class="text-slate-400 font-mono text-sm mt-1 md:mt-0">May 2021 - Oct 2022</span>
+                    </div>
+                    <h4 class="text-lg text-slate-400 mb-4 font-medium">IFCA MSC BHD</h4>
+                    <ul class="space-y-2 text-slate-400 list-none">
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Partnered cross-functionally with the development team on core product development initiatives.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Wrote highly maintainable, solid code for software systems ensuring referenceable and robust solutions.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Collaborated with software consultants and QA testers to deploy high-quality client solutions.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Managed client-side API deployments and enhanced website security features.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute w-4 h-4 bg-navy-900 border-2 border-slate-500 rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-slate-200">RAMP Intern</h3>
+                        <span class="text-slate-400 font-mono text-sm mt-1 md:mt-0">Dec 2019 - Mar 2020</span>
+                    </div>
+                    <h4 class="text-lg text-slate-400 mb-4 font-medium">Vigorish SDN BHD</h4>
+                    <ul class="space-y-2 text-slate-400 list-none">
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Designed and developed responsive user interfaces for web applications.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Focused on systematic identification and resolution of software bugs.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Collaborated with the Marketing Team to optimize and increase SEO rankings.</li>
+                        <li class="flex items-start"><i class="fas fa-caret-right text-accent mt-1 mr-3"></i> Developed engaging mini-games to boost user retention.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-navy-800/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-accent font-normal mr-3 text-xl">03.</span> Featured Projects
+                <div class="h-px bg-navy-700 flex-grow ml-6"></div>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-mobile-alt hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">Michelin Biz Connect</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">An easy-to-use application designed to quickly check Michelin tire rebates. Developed for customers and selected premium partners across Asian countries including Korea, Japan, and Malaysia.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>Mobile App</span>
+                        <span>Enterprise</span>
+                        <span>Asia-Pacific</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-tools hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">Webmax Pro Suite</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">A comprehensive app suite (V3+, V3, Pro) for car and tyre workshops. Enables users to track service progress, create sales orders/invoices, check stock, and monitor driver locations.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>Workshop Management</span>
+                        <span>Logistics</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-store hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">Webmax Biz V3+</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">A dedicated B2B/B2C application streamlining the supply chain. It allows dealers to efficiently place orders with wholesalers directly through the mobile interface.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>B2C</span>
+                        <span>E-commerce</span>
+                        <span>Wholesale</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-car hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">Tayaria TOP</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">A customized mobile solution built specifically for one of the largest tyre dealers in Malaysia. Equips salesmen with tools to check inventory, process orders, and manage purchases on the go.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>Custom App</span>
+                        <span>Sales Tools</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-users-cog hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">EWS HR</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">Employee Workflow Solution (EWS) is a cloud-based HR workflow management software offering a comprehensive all-in-one solution for effectively managing HR processes and ensuring efficiency.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>Cloud HR</span>
+                        <span>SaaS</span>
+                        <span>Workflow</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-navy-800 rounded-lg p-6 hover:-translate-y-2 transition-transform duration-300 border border-navy-700 hover:border-teal-400/30 group flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-4xl text-accent"></i>
+                        <div class="flex gap-3 text-slate-400">
+                            <i class="fas fa-laptop-code hover:text-accent cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-accent transition-colors">Web-Based Study Tool</h3>
+                    <p class="text-slate-400 text-sm mb-6 flex-grow">Final Year Project (FYP). A responsive study tool developed using .NET Core and Bootstrap. Hosted on Microsoft Azure, utilizing MS SQL database and Entity Framework.</p>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono text-slate-500 mt-auto">
+                        <span>.Net Core</span>
+                        <span>Azure</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Languages Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-accent font-normal mr-3 text-xl">04.</span> Education & Languages
+                <div class="h-px bg-navy-700 flex-grow ml-6"></div>
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <div class="mb-8 p-6 bg-navy-800 rounded-lg border border-navy-700 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-400/5 rounded-bl-full"></div>
+                        <h3 class="text-xl font-bold text-slate-200 mb-1">Bachelor of Science (Hons) in Software Engineering</h3>
+                        <p class="text-accent mb-3 font-mono text-sm">Asia Pacific University of Technology and Innovation (APU)</p>
+                        <div class="flex justify-between items-center text-slate-400 text-sm">
+                            <span>2018 - 2021</span>
+                            <span class="bg-navy-900 px-3 py-1 rounded text-slate-300">CGPA: Second Upper (3.2)</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-navy-800 rounded-lg border border-navy-700 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-400/5 rounded-bl-full"></div>
+                        <h3 class="text-xl font-bold text-slate-200 mb-1">A-Level</h3>
+                        <p class="text-accent mb-3 font-mono text-sm">Tunku Abdul Rahman University of Management and Technology (TAR UMT)</p>
+                        <div class="flex justify-between items-center text-slate-400 text-sm">
+                            <span>2016 - 2017</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <div class="bg-navy-800 rounded-lg border border-navy-700 p-8 h-full">
+                        <h3 class="text-2xl font-bold text-slate-200 mb-6 flex items-center"><i class="fas fa-globe-asia text-accent mr-3"></i> Language Proficiency</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-200 font-medium">Mandarin</span>
+                                    <span class="text-slate-400 text-sm">Fluent (Speak & Write)</span>
+                                </div>
+                                <div class="w-full bg-navy-900 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-200 font-medium">English</span>
+                                    <span class="text-slate-400 text-sm">Professional (Speak & Write)</span>
+                                </div>
+                                <div class="w-full bg-navy-900 rounded-full h-2">
+                                    <div class="bg-teal-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-200 font-medium">Malay</span>
+                                    <span class="text-slate-400 text-sm">Conversational</span>
+                                </div>
+                                <div class="w-full bg-navy-900 rounded-full h-2">
+                                    <div class="bg-teal-600 h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-200 font-medium">Cantonese</span>
+                                    <span class="text-slate-400 text-sm">Conversational</span>
+                                </div>
+                                <div class="w-full bg-navy-900 rounded-full h-2">
+                                    <div class="bg-teal-700 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-slate-500 text-sm font-mono border-t border-navy-800">
+        <p>Built by Pang Yew Cheng &copy; <span id="year"></span></p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and interactions -->
+    <script>
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hide navigation background at top of page (optional visual flair)
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-navy-900/90');
+                nav.classList.remove('bg-navy-900/80');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-navy-900/90');
+                nav.classList.add('bg-navy-900/80');
+            }
+        });
+    </script>
+</body>
+</html>
