@@ -1,355 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pang Yew Cheng | Portfolio</title>
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #4a4a4a;
-            --accent-color: #0056b3;
-            --bg-white: #ffffff;
-            --bg-light: #fafafa;
-            --border-color: #eaeaea;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pang Yew Cheng — Software Engineer specializing in .NET, payment systems, cloud architecture and mobile applications." />
+  <title>Pang Yew Cheng — Software Engineer</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-soft: #f0f4f9;
+      --text: #172033;
+      --muted: #657086;
+      --line: #e4e9f0;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #eaf1ff;
+      --success: #16835b;
+      --shadow: 0 18px 50px rgba(23, 32, 51, 0.08);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--secondary-color);
-            background-color: var(--bg-white);
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        h1, h2, h3, h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
+    html { scroll-behavior: smooth; }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    body {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(37, 99, 235, 0.08), transparent 28rem),
+        var(--bg);
+      line-height: 1.7;
+    }
 
-        a:hover {
-            color: #003d82;
-        }
+    a { color: inherit; text-decoration: none; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
 
-        /* Navigation */
-        .navbar {
-            background-color: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* Navigation */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(247, 249, 252, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(228, 233, 240, 0.85);
+    }
 
-        .nav-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), #60a5fa);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: 6rem 0;
-            text-align: center;
-            background-color: var(--bg-white);
-        }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    .nav-links a:hover { color: var(--primary); }
 
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
+    .nav-cta {
+      padding: 9px 15px;
+      border: 1px solid #cfd8e6;
+      border-radius: 10px;
+      background: var(--surface);
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
+    /* Hero */
+    .hero {
+      min-height: 650px;
+      display: grid;
+      align-items: center;
+      padding: 82px 0 72px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            margin: 0 0.5rem;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 70px;
+      align-items: center;
+    }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--bg-white);
-        }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid #dbe5f4;
+      border-radius: 999px;
+      color: var(--primary);
+      background: var(--surface);
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
 
-        .btn-primary:hover {
-            background-color: #333;
-            color: var(--bg-white);
-        }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(22, 131, 91, 0.1);
+    }
 
-        .btn-secondary {
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-        }
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin-bottom: 24px;
+    }
 
-        /* Sections */
-        .section {
-            padding: 5rem 2rem;
-        }
+    .hero h1 span {
+      color: var(--primary);
+    }
 
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
+    .hero-lead {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      margin-bottom: 30px;
+    }
 
-        .bg-light {
-            background-color: var(--bg-light);
-        }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-        /* Experience Timeline */
-        .timeline-item {
-            margin-bottom: 2.5rem;
-        }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 19px;
+      border-radius: 11px;
+      font-weight: 750;
+      transition: 0.2s ease;
+    }
 
-        .timeline-item h3 {
-            font-size: 1.25rem;
-        }
+    .button-primary {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
 
-        .timeline-item h4 {
-            font-size: 1rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
+    .button-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
 
-        .timeline-item ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+    .button-secondary {
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
 
-        .timeline-item li {
-            margin-bottom: 0.5rem;
-        }
+    .button-secondary:hover {
+      border-color: #bcc8d9;
+      transform: translateY(-2px);
+    }
 
-        /* Grid for Projects */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
 
-        .card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 6px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      top: -35px;
+      right: -25px;
+      z-index: -1;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
+    .profile-initials {
+      width: 78px;
+      height: 78px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-size: 1.7rem;
+      font-weight: 850;
+      margin-bottom: 24px;
+    }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
+    .hero-card h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .hero-card p { color: var(--muted); }
 
-        /* Skills & Certs */
-        .cert-banner {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--accent-color);
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
+    .quick-facts {
+      display: grid;
+      gap: 13px;
+      margin-top: 25px;
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
+    .fact {
+      padding: 13px 14px;
+      background: var(--surface-soft);
+      border-radius: 12px;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-white);
-        }
+    .fact strong { display: block; font-size: 0.82rem; color: var(--muted); }
+    .fact span { font-weight: 700; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    /* Sections */
+    section { padding: 92px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    .section-description {
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .info-card {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .info-card h3 { margin-bottom: 12px; }
+    .info-card p { color: var(--muted); }
+
+    .highlight-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    /* Experience */
+    .experience {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: #d8e0eb;
+    }
+
+    .job {
+      position: relative;
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 20px;
+    }
+
+    .job-dot {
+      width: 21px;
+      height: 21px;
+      margin-top: 4px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 5px solid var(--primary);
+      z-index: 1;
+    }
+
+    .job-card {
+      padding: 25px 28px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .job h3 { font-size: 1.2rem; }
+    .company { color: var(--primary); font-weight: 700; }
+    .date { color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
+
+    .job ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .job li + li { margin-top: 7px; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      position: relative;
+      min-height: 260px;
+      padding: 29px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: 0.22s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #cad7e8;
+    }
+
+    .project-number {
+      color: #b8c4d4;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .project h3 {
+      margin: 35px 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .project p { color: var(--muted); }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    /* Skills */
+    .skills-section {
+      background: #eef3f9;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 25px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .skill-card h3 { margin-bottom: 15px; }
+    .skill-card p { color: var(--muted); }
+
+    .certification {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 25px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid #d8e3f1;
+    }
+
+    .cert-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #fff6d9;
+    }
+
+    .certification p { color: var(--muted); font-size: 0.92rem; }
+
+    /* Contact */
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 45px;
+      align-items: center;
+      padding: 48px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box p { color: var(--muted); margin: 14px 0 25px; }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-detail {
+      padding: 14px 16px;
+      border-radius: 11px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+    }
+
+    .contact-detail small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .contact-detail a:hover { color: var(--primary); }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding: 65px 0; }
+      .hero-grid,
+      .about-grid,
+      .contact-box { grid-template-columns: 1fr; }
+      .hero-grid { gap: 40px; }
+      .projects-grid,
+      .skills-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-description { margin-top: 15px; }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      section { padding: 65px 0; }
+      .hero h1 { font-size: 3.25rem; }
+      .job-top { display: block; }
+      .date { display: block; margin-top: 4px; }
+      .contact-box { padding: 28px; }
+    }
+  </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="logo">Pang Yew Cheng</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#">
+        <span class="brand-mark">PY</span>
+        <span>Pang Yew Cheng</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a class="nav-cta" href="#contact">Let's Talk</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
     <header class="hero">
-        <div class="container">
-            <h1>Pang Yew Cheng</h1>
-            <h2>Software Engineer | Mobile & Backend Specialist | Cloud Architect</h2>
-            <p>Building robust scalable systems, payment integrations, and responsive mobile applications.</p>
-            <div class="hero-buttons">
-                <a href="#experience" class="btn btn-primary">View Experience</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            </div>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            Software Engineer · Kuala Lumpur
+          </div>
+
+          <h1>Building software that <span>works beautifully.</span></h1>
+
+          <p class="hero-lead">
+            Software Engineer focused on backend systems, payment technology,
+            cloud architecture and mobile applications. I enjoy turning complex
+            technical problems into reliable, maintainable products.
+          </p>
+
+          <div class="actions">
+            <a class="button button-primary" href="#projects">Explore My Work →</a>
+            <a class="button button-secondary" href="#contact">Get In Touch</a>
+          </div>
         </div>
+
+        <aside class="hero-card">
+          <div class="profile-initials">Jack</div>
+          <h3>Software Engineer</h3>
+          <p>.NET · Payment Systems · Cloud · Mobile</p>
+
+          <div class="quick-facts">
+            <div class="fact">
+              <strong>Current Focus</strong>
+              <span>Backend & Payment Engineering</span>
+            </div>
+            <div class="fact">
+              <strong>Primary Stack</strong>
+              <span>C# / ASP.NET Core / SQL</span>
+            </div>
+            <div class="fact">
+              <strong>Cloud</strong>
+              <span>AWS / Azure</span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </header>
 
-    <section id="about" class="container section">
-        <h2 class="section-title">About Me</h2>
-        <p>Forward-thinking software developer with a background working productively in dynamic environments. I specialize in backend service development, cloud infrastructure, and payment gateway architectures using C#, ASP.NET Core, React, and TypeScript. I am fluent in JavaScript/TypeScript and the .NET Framework, with extensive experience in the property and e-commerce industries. Additionally, I utilize Flutter to build responsive mobile applications. I am a team player focused on fast, accurate delivery and continuous learning.</p>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">01 — About</div>
+            <h2 class="section-title">Engineering with a<br />product mindset.</h2>
+          </div>
+          <p class="section-description">
+            I work across backend services, APIs, payment integrations,
+            cloud infrastructure and mobile applications, with a focus on
+            security, maintainability and practical delivery.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="info-card">
+            <h3>What I do</h3>
+            <p>
+              I build scalable software using C#, ASP.NET Core, React,
+              TypeScript and Flutter. My experience spans payment systems,
+              e-commerce, property technology and mobile applications.
+            </p>
+
+            <div class="highlight-list">
+              <div class="highlight">
+                <span class="check">✓</span>
+                <span>Backend services & API architecture</span>
+              </div>
+              <div class="highlight">
+                <span class="check">✓</span>
+                <span>Payment gateway & tokenization integrations</span>
+              </div>
+              <div class="highlight">
+                <span class="check">✓</span>
+                <span>Cloud infrastructure & secure systems</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>Certification</h3>
+            <p>
+              AWS Certified Solutions Architect — Associate (SAA-C03)
+            </p>
+
+            <div class="highlight-list">
+              <div class="highlight">
+                <span class="check">★</span>
+                <span>Professional certification</span>
+              </div>
+              <div class="highlight">
+                <span class="check">✓</span>
+                <span>Issued: 2026</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="experience" class="container section bg-light">
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="timeline-item">
-            <h3>Software Engineer</h3>
-            <h4>NTT Data ECommerce Service Sdn Bhd | Oct 2025 – Present</h4>
-            <ul>
-                <li>Develop and maintain backend services, cloud infrastructure, and payment gateway architectures using C#, ASP.NET Core, Entity Framework Core, React, and TypeScript.</li>
-                <li>Build and integrate payment orchestrator applications (IPay88), developing test endpoints and SCOF service enrollment integrations.</li>
-                <li>Implement highly secure data handling, including Mastercard JWK encryption mechanisms (RSA-OAEP-256) and tokenization protocols.</li>
-            </ul>
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">02 — Experience</div>
+            <h2 class="section-title">A career across<br />multiple domains.</h2>
+          </div>
+          <p class="section-description">
+            From mobile applications to enterprise payment infrastructure,
+            each role has expanded my engineering perspective.
+          </p>
         </div>
 
-        <div class="timeline-item">
-            <h3>Senior Mobile App Developer</h3>
-            <h4>Webmax Technologies SDN BHD (M Studio) | Oct 2022 – Sept 2025</h4>
-            <ul>
-                <li>Handled mobile application development and researched the latest updates for Flutter frameworks.</li>
-                <li>Monitored and upgraded mobile app versions while developing APIs for mobile applications and third-party vendor integrations.</li>
-                <li>Enhanced security features for client websites and standardized internal business logic.</li>
-            </ul>
-        </div>
+        <div class="timeline">
+          <article class="job">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-top">
+                <div>
+                  <h3>Software Engineer</h3>
+                  <div class="company">NTT Data ECommerce Service Sdn Bhd</div>
+                </div>
+                <div class="date">Oct 2025 — Present</div>
+              </div>
+              <ul>
+                <li>Develop backend services, cloud infrastructure and payment gateway architectures using C#, ASP.NET Core, EF Core, React and TypeScript.</li>
+                <li>Build and integrate payment orchestration applications, including test endpoints and SCOF service enrollment integrations.</li>
+                <li>Implement secure data handling using Mastercard JWK encryption mechanisms and tokenization protocols.</li>
+              </ul>
+            </div>
+          </article>
 
-        <div class="timeline-item">
-            <h3>Website Developer</h3>
-            <h4>IFCA MSC BHD | May 2021 – Oct 2022</h4>
-            <ul>
-                <li>Partnered with the development team to write highly maintainable, solid code for software systems and referenceable solutions in the property industry.</li>
-                <li>Managed deployment APIs and collaborated with software developers, consultants, and testers to deliver robust solutions for clients.</li>
-            </ul>
+          <article class="job">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-top">
+                <div>
+                  <h3>Senior Mobile App Developer</h3>
+                  <div class="company">Webmax Technologies Sdn Bhd (M Studio)</div>
+                </div>
+                <div class="date">Oct 2022 — Sept 2025</div>
+              </div>
+              <ul>
+                <li>Developed mobile applications and researched current Flutter framework updates.</li>
+                <li>Managed mobile app upgrades and developed APIs for mobile applications and third-party integrations.</li>
+                <li>Enhanced website security and standardized internal business logic.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-top">
+                <div>
+                  <h3>Website Developer</h3>
+                  <div class="company">IFCA MSC BHD</div>
+                </div>
+                <div class="date">May 2021 — Oct 2022</div>
+              </div>
+              <ul>
+                <li>Built maintainable software solutions for the property technology industry.</li>
+                <li>Managed deployment APIs and collaborated with developers, consultants and testers to deliver client solutions.</li>
+              </ul>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section id="projects" class="container section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Payment Orchestration</h3>
-                <p>Engineered backend infrastructure and security protocols (RSA-OAEP-256) for robust e-commerce payment processing in ASP.NET Core.</p>
-            </div>
-            <div class="card">
-                <h3>Michelin Biz Connect</h3>
-                <p>Built a Flutter app used across Asian countries (Korea, Japan, Malaysia) to quickly check Michelin tire rebates for customers and premium partners.</p>
-            </div>
-            <div class="card">
-                <h3>Webmax Pro</h3>
-                <p>Developed applications for automotive workshops allowing users to track service progress, manage invoices, check stock, and track driver locations.</p>
-            </div>
-            <div class="card">
-                <h3>Tayaria TOP</h3>
-                <p>Customized B2B platform for a major Malaysian tire dealer, enabling sales teams to check inventory and place orders on the go.</p>
-            </div>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">03 — Education</div>
+            <h2 class="section-title">Academic foundation<br />for my engineering career.</h2>
+          </div>
+          <p class="section-description">
+            A software engineering foundation that supports my work across
+            backend systems, mobile applications, APIs and cloud technologies.
+          </p>
         </div>
+
+        <article class="info-card">
+          <div class="job-top">
+            <div>
+              <h3>Bachelor of Science (Hons) Software Engineering</h3>
+              <div class="company">Asia Pacific University (APU)</div>
+            </div>
+            <div class="date">Software Engineering</div>
+          </div>
+
+          <div class="highlight-list">
+            <div class="highlight">
+              <span class="check">✓</span>
+              <span>CGPA: 3.2</span>
+            </div>
+            <div class="highlight">
+              <span class="check">✓</span>
+              <span>Software engineering fundamentals, application development and system design</span>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="skills" class="container section bg-light">
-        <h2 class="section-title">Skills & Certifications</h2>
-        
-        <div class="cert-banner">
-            <strong>Certification:</strong> AWS Certified Solutions Architect – Associate (SAA-C03) (Issued: 2026)
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">04 — Selected Work</div>
+            <h2 class="section-title">Projects that<br />solve real problems.</h2>
+          </div>
+          <p class="section-description">
+            A selection of applications and systems from payment, automotive
+            and business technology projects.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project">
+            <span class="project-number">01 / PAYMENT</span>
+            <h3>Payment Orchestration</h3>
+            <p>
+              Backend infrastructure and security protocols for robust
+              e-commerce payment processing using ASP.NET Core.
+            </p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">Payment</span>
+              <span class="tag">RSA</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="project-number">02 / MOBILE</span>
+            <h3>Michelin Biz Connect</h3>
+            <p>
+              Flutter application used across Korea, Japan and Malaysia to
+              check Michelin tyre rebates for customers and premium partners.
+            </p>
+            <div class="tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Mobile</span>
+              <span class="tag">API</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="project-number">03 / AUTOMOTIVE</span>
+            <h3>Webmax Pro</h3>
+            <p>
+              Automotive workshop applications for service progress,
+              invoicing, stock management and driver location tracking.
+            </p>
+            <div class="tags">
+              <span class="tag">Mobile</span>
+              <span class="tag">API</span>
+              <span class="tag">Business Logic</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="project-number">04 / B2B</span>
+            <h3>Tayaria TOP</h3>
+            <p>
+              B2B platform for a major Malaysian tyre dealer, helping sales
+              teams check inventory and place orders on the go.
+            </p>
+            <div class="tags">
+              <span class="tag">B2B</span>
+              <span class="tag">Inventory</span>
+              <span class="tag">Mobile</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">05 — Toolkit</div>
+            <h2 class="section-title">Technologies I<br />work with.</h2>
+          </div>
+          <p class="section-description">
+            A broad toolkit across application development, databases,
+            cloud infrastructure, security and DevOps.
+          </p>
         </div>
 
         <div class="skills-grid">
-            <div>
-                <h3>Languages & Frameworks</h3>
-                <p>C#, ASP.NET Core, Flutter, React, Angular, TypeScript, JavaScript, HTML, CSS, Java, Python, C++</p>
-            </div>
-            <div>
-                <h3>Database & Cloud</h3>
-                <p>AWS Architecture, Azure Cloud, PostgreSQL, Microsoft SQL Server, Entity Framework Core</p>
-            </div>
-            <div>
-                <h3>Tools & DevOps</h3>
-                <p>Git (GitLab, GitHub), CI/CD Pipelines, Postman, JWT, RSA-OAEP-256 Encryption</p>
-            </div>
+          <article class="skill-card">
+            <h3>Languages & Frameworks</h3>
+            <p>C#, ASP.NET Core, Flutter, React, Angular, TypeScript, JavaScript, HTML, CSS, Java, Python, C++</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Cloud & Database</h3>
+            <p>AWS Architecture, Azure Cloud, PostgreSQL, Microsoft SQL Server, Entity Framework Core</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Tools & Security</h3>
+            <p>Git, GitLab, GitHub, CI/CD, Postman, JWT, RSA-OAEP-256 Encryption</p>
+          </article>
         </div>
+
+        <div class="certification">
+          <div class="cert-icon">★</div>
+          <div>
+            <strong>AWS Certified Solutions Architect — Associate (SAA-C03)</strong>
+            <p>Professional certification · Issued 2026</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" class="container section">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:chengpangyew@hotmail.com">chengpangyew@hotmail.com</a></p>
-            <p><strong>Phone:</strong> 016-3321863</p>
-            <p><strong>Location:</strong> Kepong, 52100 Kuala Lumpur, Malaysia</p>
-            <p><strong>Education:</strong> BSc (Hons) Software Engineering (APU) | CGPA: 3.2</p>
-        </div>
-    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="section-kicker">06 — Contact</div>
+            <h2 class="section-title">Let's build something<br />great together.</h2>
+            <p>
+              I'm open to interesting software engineering opportunities,
+              technical collaborations and projects where good engineering
+              can make a meaningful difference.
+            </p>
+            <a class="button button-primary" href="mailto:chengpangyew@hotmail.com">
+              Email Me →
+            </a>
+          </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Pang Yew Cheng. All rights reserved.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <small>Email</small>
+              <a href="mailto:chengpangyew@hotmail.com">chengpangyew@hotmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <small>Phone</small>
+              <span>016-3321863</span>
+            </div>
+            <div class="contact-detail">
+              <small>Location</small>
+              <span>Kepong, Kuala Lumpur, Malaysia</span>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Pang Yew Cheng · Software Engineer
+    </div>
+  </footer>
 </body>
 </html>
